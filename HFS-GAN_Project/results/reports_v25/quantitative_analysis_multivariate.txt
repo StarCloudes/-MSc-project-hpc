@@ -1,0 +1,62 @@
+--- HFS-GAN Multivariate Model Evaluation Report ---
+
+--- Starting Multivariate Model Evaluation ---
+Loading model from: saved_models_v25/generator_epoch_2000.pth
+
+--- Preparing Evaluation Data ---
+
+--- Generating 5787 Synthetic Samples for Evaluation ---
+Evaluation dataset ready! (Real: (5787, 64, 3), Generated: (5787, 64, 3))
+
+==================================================
+      STARTING MODEL EVALUATION
+==================================================
+
+--- 4.1 Qualitative Analysis: Path Gallery & Distributions ---
+
+--- 4.2 Quantitative Analysis: Statistical Properties ---
+
+--- Asset: ^GSPC ---
+Mean (Real vs Gen):      0.000198 vs -0.000610
+Std Dev (Real vs Gen):   0.012363 vs 0.016995
+Skewness (Real vs Gen):  -0.3895 vs 0.6421
+Kurtosis (Real vs Gen):  13.6448 vs 3.6669
+
+--- Asset: ^IXIC ---
+Mean (Real vs Gen):      0.000241 vs -0.000307
+Std Dev (Real vs Gen):   0.015256 vs 0.018928
+Skewness (Real vs Gen):  -0.1035 vs 0.5921
+Kurtosis (Real vs Gen):  9.5778 vs 3.5271
+
+--- Asset: GC=F ---
+Mean (Real vs Gen):      0.000344 vs -0.000887
+Std Dev (Real vs Gen):   0.010960 vs 0.014166
+Skewness (Real vs Gen):  -0.2833 vs -0.4495
+Kurtosis (Real vs Gen):  8.4066 vs 6.2209
+
+--- 4.3 Correlation Analysis ---
+Real Returns Correlation Matrix:
+          ^GSPC     ^IXIC      GC=F
+^GSPC  1.000000  0.919331 -0.007468
+^IXIC  0.919331  1.000000 -0.014174
+GC=F  -0.007468 -0.014174  1.000000
+
+Generated Returns Correlation Matrix:
+          ^GSPC     ^IXIC      GC=F
+^GSPC  1.000000  0.963672 -0.040431
+^IXIC  0.963672  1.000000 -0.040966
+GC=F  -0.040431 -0.040966  1.000000
+
+Frobenius norm of correlation matrix difference: 0.0868
+
+--- 4.4 Financial Application: Portfolio Risk Metrics ---
+Portfolio: Equal-weighted ['^GSPC', '^IXIC', 'GC=F']
+Real Data Portfolio VaR (95%): -9.6940%
+Generated Data Portfolio VaR (95%): -10.4947%
+------------------------------
+Real Data Portfolio ES (95%): -14.6102%
+Generated Data Portfolio ES (95%): -15.4226%
+
+==================================================
+      MODEL EVALUATION FINISHED
+==================================================
